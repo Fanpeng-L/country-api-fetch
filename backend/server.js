@@ -1,17 +1,30 @@
 const express = require("express");
-const axios = require("axios");
-
 const app = express();
 const PORT = process.env.PORT || 3000;
+const axios = require("axios");
+const cors = require("cors");
 
-app.get("/countries/:name", async (req, res) => {
+app.use(cors());
+
+// fetch all countries data:
+app.get("/countries", async (req, res) => {
+  try {
+    const response = await axios.get("https://restcountries.com/v3.1/all");
+    res.json(response.data);
+  } catch (error) {
+    res.status(500).json({ error: "Something went wrong." });
+  }
+});
+
+// fetch a single country's data:
+app.get("/countries/name/:name", async (req, res) => {
   const countryName = req.params.name;
+  console.log(countryName);
   try {
     const response = await axios.get(
       `https://restcountries.com/v3.1/name/${countryName}`
     );
-    const country = response.data;
-    res.json(country);
+    res.json(response.data);
   } catch (error) {
     res.status(500).json({ error: "Failed to fetch country data" });
   }
