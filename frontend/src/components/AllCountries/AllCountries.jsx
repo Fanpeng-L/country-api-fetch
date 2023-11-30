@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import "./AllCountries.css";
 
 const AllCountries = () => {
   const [countries, setCountries] = useState([]);
@@ -27,23 +28,20 @@ const AllCountries = () => {
 
   return (
     <div className="all-country-container">
-      <div className="country-top"></div>
-      <div className="country-bottom">
-        {isLoading && !error && <h3>Loading all the country info...</h3>}
-        {error && !isLoading && <h3>{error}</h3>}
-        {countries?.map((country) => (
-          <div key={countries.indexOf(country)} className="country-card">
-            <div className="country-img">
-              <img src={country.flags.png} alt={country.name.common} />
-            </div>
-            <div className="country-data">
-              <h3>{country.name.common}</h3>
-              <p>Region: {country.region}</p>
-              <p>Capital: {country.capital}</p>
-            </div>
+      {isLoading && !error && <h3>Loading all the country info...</h3>}
+      {error && !isLoading && <h3>{error}</h3>}
+      {countries?.map((country) => (
+        <div key={countries.indexOf(country)} className="country-card">
+          <div className="country-img">
+            <img src={country.flags.png} alt={country.name.common} />
           </div>
-        ))}
-      </div>
+          <div className="country-data">
+            <h3>{country.name.common}</h3>
+            <p>Region: {country.region}</p>
+            <p>Capital: {country.capital}</p>
+          </div>
+        </div>
+      ))}
     </div>
   );
 };

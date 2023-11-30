@@ -22,7 +22,7 @@ app.get("/countries/name/:name", async (req, res) => {
   console.log(countryName);
   try {
     const response = await axios.get(
-      `https://restcountries.com/v3.1/name/${countryName}`
+      `https://restcountries.com/v3.1/name/${countryName}?fullText=true`
     );
     res.json(response.data);
   } catch (error) {
