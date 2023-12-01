@@ -48,9 +48,9 @@ Preview:
 
 (API source: [REST countries](https://restcountries.com/#endpoints-name))
 
-- `https://restcountries.com/v3.1/all
-` - Description of route 1
+- `https://restcountries.com/v3.1/all`
 
   - `GET`: Retrieves all countries data
 
-- `https://restcountries.com/v3.1/name/{name}?fullText=true` - `GET`: Retrieve a single country data
+- `https://restcountries.com/v3.1/name/{name}?fullText=true`
+  - `GET`: Retrieve a single country data
