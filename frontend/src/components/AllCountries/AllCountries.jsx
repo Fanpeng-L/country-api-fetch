@@ -32,7 +32,7 @@ const AllCountries = () => {
     <div className="all-country-container">
       <Navbar />
       {isLoading && !error && <h3>Loading all the country info...</h3>}
-      {error && !isLoading && <h3>{error}</h3>}
+      {error && !isLoading && <h3>Something went wrong</h3>}
       {countries?.map((country) => (
         <div key={countries.indexOf(country)} className="country-card">
           <div className="country-img">

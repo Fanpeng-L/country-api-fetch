@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Countries from "./pages/Countries";
 
-export const URL = import.meta.env.API_URL;
+export const URL = import.meta.env.VITE_API_URL;
 
 function App() {
   return (
