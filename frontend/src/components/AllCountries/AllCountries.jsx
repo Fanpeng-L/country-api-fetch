@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./AllCountries.css";
+import Navbar from "../Navbar/Navbar";
 
 const AllCountries = () => {
   const [countries, setCountries] = useState([]);
@@ -28,6 +29,7 @@ const AllCountries = () => {
 
   return (
     <div className="all-country-container">
+      <Navbar />
       {isLoading && !error && <h3>Loading all the country info...</h3>}
       {error && !isLoading && <h3>{error}</h3>}
       {countries?.map((country) => (

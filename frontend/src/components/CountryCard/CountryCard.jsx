@@ -14,6 +14,10 @@ const CountryCard = () => {
   const [error, setError] = useState("");
   const [input, setInput] = useState("ireland");
 
+  const handleInputChange = (e) => {
+    setInput(e.target.value.toLowerCase());
+  };
+
   //fetch a country's data from backend:
   const fetchCountry = async () => {
     try {
@@ -24,40 +28,58 @@ const CountryCard = () => {
       console.log(data);
       setCountry(data);
       setIsLoading(false);
+      setError("");
     } catch (error) {
       setIsLoading(false);
-      setError(error.message);
+      setError("Fail to search for the country 😢");
     }
   };
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    await fetchCountry();
+    e.target.reset();
+  };
+
   useEffect(() => {
-    fetchCountry(); // Initial data fetch on component mount
+    fetchCountry();
   }, []);
 
   return (
     <main className="country-card-container">
-      <div className="country-card-search">
+      <form className="country-card-search" onSubmit={handleSubmit}>
         <input
           type="text"
           placeholder="search country..."
-          onChange={(e) => setInput(e.target.value)}
+          onChange={handleInputChange}
         />
-        <button onClick={() => fetchCountry()}>search</button>
-      </div>
+        <button type="submit">Search</button>
+      </form>
       <div className="country-card-content">
         {isLoading && !error && <h3>Loading the country info...</h3>}
         {error && !isLoading && <h3>{error}</h3>}
         <div>
-          <h1 className="country-card-title">{country.name.common}</h1>
-          <img src={country.flags.png} alt={country.name.common} />
-        </div>
-        <div className="country-card-info">
           {!isLoading && !error && (
-            <>
-              <p>Capital: {country.capital} </p>
-              <p>Region: {country.region}</p>
-              <p>Timezone: {country.timezones[0]}</p>
-            </>
+            <div className="country-card-info">
+              <div>
+                <h1 className="country-card-title">{country.name.common}</h1>
+                <img src={country.flags.png} alt={country.name.common} />
+              </div>
+              <div>
+                <p>
+                  <span>Capital: </span>
+                  {country.capital}{" "}
+                </p>
+                <p>
+                  <span>Region: </span>
+                  {country.region}
+                </p>
+                <p>
+                  <span>Timezone: </span>
+                  {country.timezones[0]}
+                </p>
+              </div>
+            </div>
           )}
         </div>
       </div>
