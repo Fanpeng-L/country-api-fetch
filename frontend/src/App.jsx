@@ -2,6 +2,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Countries from "./pages/Countries";
 
+export const URL = import.meta.env.API_URL;
+
 function App() {
   return (
     <BrowserRouter>

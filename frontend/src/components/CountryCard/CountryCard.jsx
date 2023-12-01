@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./CountryCard.css";
 import axios from "axios";
+import { URL } from "../../App";
 
 const CountryCard = () => {
   const [country, setCountry] = useState({
@@ -22,7 +23,7 @@ const CountryCard = () => {
   const fetchCountry = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:3000/countries/name/${input}?fullText=true`
+        `${URL}/countries/name/${input}?fullText=true`
       );
       const data = res.data[0];
       console.log(data);

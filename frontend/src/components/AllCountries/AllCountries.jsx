@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./AllCountries.css";
 import Navbar from "../Navbar/Navbar";
+import { URL } from "../../App";
 
 const AllCountries = () => {
   const [countries, setCountries] = useState([]);
@@ -11,7 +12,7 @@ const AllCountries = () => {
   //fetch all countries' data from backend:
   const showAllCountries = async () => {
     try {
-      const res = await axios.get("http://localhost:3000/countries");
+      const res = await axios.get(`${URL}/countries`);
       if (res.status !== 200) throw new Error("Something went wrong.");
       const data = await res.data;
       console.log(data);
