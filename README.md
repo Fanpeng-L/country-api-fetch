@@ -38,7 +38,9 @@ You can:
 
 ## Live Demo
 
-**[Click here 🔗 to try live demo!](https://serene-bonbon-04ecf7.netlify.app/)**
+**[Click here 🔗 to try live demo!](https://country-api-react-node-express.netlify.app/)**
+
+(It might take a few seconds to get all the data)
 
 Preview:
 
