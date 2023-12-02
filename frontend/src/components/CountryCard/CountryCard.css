@@ -87,3 +87,22 @@
 .country-card-title {
   margin-bottom: 6px;
 }
+
+@media (max-width: 800px) {
+  .country-card-container {
+    width: 450px;
+  }
+
+  .country-card-info {
+    width: 400px;
+    font-size: 1.2rem;
+  }
+
+  .country-card-info img {
+    width: 140px;
+  }
+
+  .country-card-title {
+    font-size: 1.4rem;
+  }
+}

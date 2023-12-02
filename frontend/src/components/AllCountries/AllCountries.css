@@ -1,5 +1,5 @@
 .all-country-container {
-  margin-top: 120px;
+  margin-top: 160px;
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -24,4 +24,10 @@
 .country-data {
   margin-top: 1rem;
   line-height: 1.5rem;
+}
+
+@media (max-width: 800px) {
+  .country-card {
+    width: 180px;
+  }
 }

@@ -63,7 +63,7 @@ const CountryCard = () => {
           {!isLoading && !error && (
             <div className="country-card-info">
               <div>
-                <h1 className="country-card-title">{country.name.common}</h1>
+                <h2 className="country-card-title">{country.name.common}</h2>
                 <img src={country.flags.png} alt={country.name.common} />
               </div>
               <div>
